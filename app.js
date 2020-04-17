@@ -12,8 +12,7 @@ var app = express();
 //conexion con base de datos
 require('./lib/connectMongoose');
 
-//Routes API
-app.use('/api/anuncios', require('./routes/api/anuncios'));
+
 
 
 
@@ -29,6 +28,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+//Routes API
+app.use('/api/anuncios', require('./routes/api/anuncios'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
