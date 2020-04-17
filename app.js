@@ -12,6 +12,11 @@ var app = express();
 //conexion con base de datos
 require('./lib/connectMongoose');
 
+//Routes API
+app.use('/api/anuncios', require('./routes/api/anuncios'));
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
