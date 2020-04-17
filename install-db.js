@@ -6,7 +6,7 @@ const Anuncios = require('./models/Anuncios');
 conn.once('open', async () => {
     try {
   
-      await initAgentes();
+      await initAnuncios();
       conn.close();
   
     } catch(err) {
