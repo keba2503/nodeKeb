@@ -8,7 +8,7 @@ const anuncioSchema = mongoose.Schema({
     name: { type: String },
     price: { type: Number },
     sale: { type: Boolean },
-
+    tags: {type: [String]}
 });
 
 //Models creation

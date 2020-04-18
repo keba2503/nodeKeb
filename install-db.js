@@ -22,18 +22,21 @@ async function initAnuncios() {
             name: "Macbook",
             sale: true,
             price: 8000,
+            tags: [ "lifestyle", "mobile", "electronic"]
         },
 
         {
             name: "Car",
             sale: false,
             price: 5000,
+            tags: [ "lifestyle", "motor"]
         },
         
         {
           name: "Ipad",
           sale: false,
           price: 2500,
+          tags: [ "lifestyle", "mobile", "electronic"]
       },
     ]);
 }
