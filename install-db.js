@@ -21,7 +21,7 @@ async function initAnuncios() {
         {
             name: "Macbook",
             sale: true,
-            price: 23015,
+            price: 8000,
         },
 
         {
@@ -29,6 +29,12 @@ async function initAnuncios() {
             sale: false,
             price: 5000,
         },
+        
+        {
+          name: "Ipad",
+          sale: false,
+          price: 2500,
+      },
     ]);
 }
 
