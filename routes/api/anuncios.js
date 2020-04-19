@@ -24,8 +24,10 @@ router.get('/', async (req, res, next) => {
         if(typeof price !== 'undefined'){
           filter.price = price;
         }
-
-       
+        
+        if (typeof sale !== 'undefined') {
+          filter.sale = sale;
+        }
 
         const docs = await Anuncios.list(filter);
         res.json(docs);
