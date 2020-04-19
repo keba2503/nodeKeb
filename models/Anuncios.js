@@ -11,6 +11,12 @@ const anuncioSchema = mongoose.Schema({
     tags: {type: [String]}
 });
 
+//schema  method static 
+anuncioSchema.statics.list = function(filter) {
+return Anuncios.find(filter);
+};
+
+
 //Models creation
 const Anuncios = mongoose.model('Anuncio', anuncioSchema);
 

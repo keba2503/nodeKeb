@@ -7,7 +7,27 @@ const Anuncios = require('../../models/Anuncios');
 
 router.get('/', async (req, res, next) => {
     try {
-        const docs = await Anuncios.find();
+        const name = req.query.name;
+        const price = req.query.price;
+        const tags  = req.query.tags
+        const sale = req.query.sale;
+        const filter = {};
+        
+        if (typeof tags !== 'undefined') {
+          filter.tags = tags;
+        }
+
+        if (typeof name !== 'undefined') {
+          filter.name = name;
+        }
+
+        if(typeof price !== 'undefined'){
+          filter.price = price;
+        }
+
+       
+
+        const docs = await Anuncios.list(filter);
         res.json(docs);
     } catch(err) {
         next(err);
