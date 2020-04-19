@@ -38,6 +38,11 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+//list tags
+router.get('/tags', function (req, res) {
+  res.json({tags: Anuncios.Tags() });
+});
+
 //Id search
 router.get('/:id', async (req, res, next) => {
     try {
@@ -48,7 +53,6 @@ router.get('/:id', async (req, res, next) => {
         next(err);
     }
 });
-
 
 //POST
 router.post('/', async (req, res, next) => {

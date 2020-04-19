@@ -11,15 +11,18 @@ const anuncioSchema = mongoose.Schema({
     tags: {type: [String]}
 });
 
-//schema  method static r
+//schema  method static
 anuncioSchema.statics.list = function(filter, limit, skip) {
 const query = Anuncios.find(filter);
 query.limit(limit);
 query.skip(skip);
 return query.exec();
-
 };
 
+//static list tags
+anuncioSchema.statics.Tags = function () {
+    return [ 'motor', 'mobile', 'lifestyle', 'work',];
+};
 
 //Models creation
 const Anuncios = mongoose.model('Anuncio', anuncioSchema);
