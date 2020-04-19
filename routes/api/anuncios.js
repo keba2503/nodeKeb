@@ -11,6 +11,7 @@ router.get('/', async (req, res, next) => {
         const price = req.query.price;
         const tags  = req.query.tags
         const sale = req.query.sale;
+        const limit = parseInt(req.query.limit);
         const filter = {};
         
         if (typeof tags !== 'undefined') {
@@ -29,7 +30,7 @@ router.get('/', async (req, res, next) => {
           filter.sale = sale;
         }
 
-        const docs = await Anuncios.list(filter);
+        const docs = await Anuncios.list(filter, limit);
         res.json(docs);
     } catch(err) {
         next(err);
