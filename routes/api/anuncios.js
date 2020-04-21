@@ -2,8 +2,26 @@
 
 const express = require('express');
 const router = express.Router();
-
 const Anuncios = require('../../models/Anuncios');
+
+//Document con Swagger
+//https://github.com/Surnet/swagger-jsdoc/blob/HEAD/docs/GETTING-STARTED.md
+
+/**
+ * @swagger
+ * /api/anuncios:
+ *  get:
+ *      summary: Get Anuncios
+ *      description: use for all ads
+ *      produces:
+ *         - application/json
+ *      responses:
+ *       200:
+ *         description: Anuncios
+ *         schema:
+ *         type: json
+ */
+
 
 router.get('/', async (req, res, next) => {
     try {
@@ -54,6 +72,24 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
+/**
+ * @swagger
+ * /api/anuncios:
+ *  post:
+ *      summary: Create Anuncio
+ *      description: Use to create new anuncio
+ *      produces:
+ *         - application/json
+ *      parameters:
+ *         - in: body
+ *           description: Anuncio Create
+ *           schema:
+ *               $ref: '#/definitions/Anuncios'
+ *      responses:
+ *       201:
+ *         description: Create
+ */
+
 //POST
 router.post('/', async (req, res, next) => {
   try {
@@ -68,6 +104,27 @@ router.post('/', async (req, res, next) => {
     next(err);
   }
 });
+
+/**
+ * @swagger
+ * /api/anuncios/{id}:
+ *  put:
+ *      summary: Update and edit
+ *      description: Anuncios update
+ *      produces:
+ *         - application/json
+ *      parameters:
+ *         - in: path
+ *           name: id
+ *           description: ID of advertisement
+ *         - in: body
+ *           description: Anuncio update
+ *           schema:
+ *               $ref: '#/definitions/Anuncios'
+ *      responses:
+ *       200:
+ *         description: Updated
+ */
 
 //PUT
 router.put('/:id', async (req, res, next) => {
@@ -84,16 +141,63 @@ router.put('/:id', async (req, res, next) => {
   }
 });
 
+/**
+ * @swagger
+ * /api/anuncios/{id}:
+ *  delete:
+ *      summary: Delete anuncio
+ *      description: delete anuncio ID
+ *      produces:
+ *         - application/json
+ *      parameters:
+ *         - in: path
+ *           name: id
+ *           description: Delete Id Anuncio
+ *      responses:
+ *       200:
+ *         description: Delete
+ *         schema:
+ *         type: json
+ */
+
 //Delete
 router.delete('/:id', async (req, res, next) => {
   try {
     const _id = req.params.id;
-    await Anuncios.deleteOne({ _id: _id });
+    await Anuncios.deleteOne({ _id });
     res.json();
   } catch (err) {
     next(err)
   }
 });
+
+
+/**
+ * @swagger
+ * definitions:
+ *  Anuncios:
+ *      type: object
+ *      properties:
+ *          name:
+ *              type: string
+ *          type:
+ *              type: string
+ *          price:
+ *              type: number
+ *          sale: 
+ *               type: boolean
+ *          tags:
+ *              type: array
+ *              items:
+ *                  type: string
+ *            
+ *              enum:
+ *                  - work
+ *                  - lifestyle
+ *                  - motor
+ *                  - mobile
+ *                  - electronic
+ */
 
   module.exports = router;
 

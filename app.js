@@ -26,8 +26,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+app.locals.title = 'NodeKeb';
+
 //Routes API
 app.use('/api/anuncios', require('./routes/api/anuncios'));
+app.use('/api/', require('./routes/api/api-docs'));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
