@@ -1,29 +1,32 @@
-# Nodekeb
+## Nodekeb
 
 Api Ads buy and sell
 
-## Install
+### Install dependencies
 
-npm install
+ > npm install
 
-### Start database
+### Initialize the data base
 
-npm run install_db
+ > npm run install_db
 
-## Start
+### Start
 
-Aplication:
+### Aplication:
 
-npm start
+ > npm start
 
-Development:
- npm run dev
+### Development:
+
+ > npm run dev
 
  ## Api Reference
 
- ## List "Anuncios"
 
- method
+
+### List "Anuncios"
+
+ #### method
  - GET:
  /api/anuncios
 
@@ -56,18 +59,20 @@ Returns a list in tags json .
         "mobile"
     ]
 } 
+
 ## json Example:
 
+[
 {
-"tags": [
-"lifestyle",
-"mobile",
-"electronic"
+        "tags": [
+                    "lifestyle",
+                    "mobile",
+                    "electronic"
 ],
-"_id": "5e9ad2cfc2011f86d0ac5cae",
-"name": "Macbook",
-"sale": true,
-"price": 8000,
-"__v": 0
-},
-
+        "_id": "5e9ad2cfc2011f86d0ac5cae",
+        "name": "Macbook",
+        "sale": true,
+        "price": 8000,
+        "__v": 0
+}
+]
