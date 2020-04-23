@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1><%= title %></h1>
+    </header>
+
+    <main>
+        <tbody>
+            <% anuncio.forEach(anuncio => { %>
+                <article class="article">
+                    <h3><%= anuncio.name%></h3>
+                    
+                    <div class="info">
+                      <div class="price">
+                        <p>Precio: <%= anuncio.price%> €</p>
+                      </div>
+                     
+                    </div>
+                    <div class="tags">
+                      <small>Tags: <%= anuncio.tags%></small>
+                    </div>
+                  </article>
+                      
+            <% }) %>
+                    
+    </main>
+
+    </script>
+  </body>
+</html>

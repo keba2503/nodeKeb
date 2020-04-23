@@ -31,6 +31,7 @@ app.locals.title = 'NodeKeb';
 //Routes API
 app.use('/api/anuncios', require('./routes/api/anuncios'));
 app.use('/api/', require('./routes/api/api-docs'));
+app.use('/web/', require('./routes/web'));
 
 
 // catch 404 and forward to error handler
