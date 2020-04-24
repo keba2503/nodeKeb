@@ -8,7 +8,7 @@
 
 ### Initialize the data base
 
-    npm run install_db
+    npm run install-db
 
 ## Start
 
@@ -20,8 +20,13 @@
 
     npm run dev
 
- ## Api Reference
 
+
+ ## Api Reference
+    http://localhost:3000/   (Readme)
+    http://localhost:3000/api (Documentacion)
+    http://localhost:3000/api/anuncios (Lista de anuncios json)
+    http://localhost:3000/web (Demo de lista de anuncios)
 
 
 ### List "Anuncios"
